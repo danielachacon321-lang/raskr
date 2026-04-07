@@ -2,15 +2,16 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Contacto</title>
+<title>Contacto - Rask Router</title>
 <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <header class="header">
-<h1>Contacto</h1>
+<img src="ruter.png" class="logo">
 <nav>
-<a href="index.html">Inicio</a>
+<a href="rask.html">Inicio</a>
 <a href="servicios.html">Servicios</a>
 <a href="costos.html">Planes</a>
 <a href="contacto.html">Contacto</a>
@@ -19,21 +20,67 @@
 
 <div class="container">
 
-<div class="card">
-<h2>Contáctanos</h2>
-
-<form>
-<input type="text" placeholder="Nombre">
-<input type="email" placeholder="Correo">
-<textarea placeholder="Mensaje"></textarea>
-<button>Enviar</button>
-</form>
-
+<!-- HERO -->
+<div class="card hero">
+<h2>Hablemos 🚚</h2>
+<p>Estamos listos para ayudarte a mejorar tus entregas</p>
 </div>
 
+<!-- SECCIÓN PRINCIPAL -->
+<div class="contacto-grid">
+
+    <!-- FORMULARIO -->
+    <div class="card">
+        <h2>Envíanos un mensaje</h2>
+
+        <form>
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="text" placeholder="Empresa">
+            <textarea rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+
+            <button type="submit">Enviar mensaje</button>
+        </form>
+    </div>
+
+    <!-- INFO -->
+    <div class="card">
+        <h2>Información de contacto</h2>
+
+        <p><strong> Ubicación:</strong> Bogotá, Colombia</p>
+        <p><strong> Teléfono:</strong> +57 300 123 4567</p>
+        <p><strong> Correo:</strong> contacto@raskrouter.com</p>
+
+        <hr>
+
+        <h3>Horario</h3>
+        <p>Lunes a viernes: 8:00 AM - 6:00 PM</p>
+        <p>Sábados: 9:00 AM - 2:00 PM</p>
+
+        <hr>
+
+        <h3>Soporte</h3>
+        <p>Atención rápida para clientes activos</p>
+    </div>
+
+
+<!-- CTA -->
+</div> <!-- CIERRA container -->
+
+<!-- CTA FULL WIDTH -->
+<div class="cta-full">
+    <h2>Empieza hoy 🚀</h2>
+    <p>Optimiza tus rutas con Rask Router</p>
+
+    <a href="costos.html">
+        <button class="btn-cta">Ver planes</button>
+    </a>
+</div>
 </div>
 
-<footer>© 2026 Rask Router</footer>
+<footer>
+<p>© 2026 Rask Router</p>
+</footer>
 
 </body>
 </html>
