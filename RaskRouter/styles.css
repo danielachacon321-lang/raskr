@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+body {
+    margin: 0;
+    background: #a4cffa;
+}
+
+/* HEADER */
+.header {
+    background: #0d47a1;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.header nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+   font-family: "Story Script", sans-serif;
+    
+}
+
+/* CONTENEDOR */
+.container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* CARDS GENERALES */
+.card {
+    background: rgb(129, 243, 157);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-family: "Walter Turncoat", cursive;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(to right, #0d47a1, #2ecc71);
+    color: white;
+    text-align: center;
+   font-family: "Quantico", sans-serif;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: white;
+    color: #0d47a1;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Quantico", sans-serif; }
+
+.hero button:hover {
+    background: #2ecc71;
+    color: white;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* GRID */
+.grid {
+    display: flex;
+    gap: 15px;
+}
+
+.mini-card {
+    background: #73a3eb;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+}
+.mini-card:hover {
+    background: #2ecc71;
+    color: white;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* SECCIÓN SERVICIOS */
+.seccion {
+    background: #f0f4f8;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* CONTENEDOR TARJETAS */
+.superior {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* TARJETAS FLIP */
+.flip-card {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+}
+
+.flip-card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.flip-card .front {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.flip-card .front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-card .front h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(13, 71, 161, 0.8);
+    color: white;
+    text-align: center;
+}
+
+.flip-card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: linear-gradient(135deg, #0d47a1, #2ecc71);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.flip-card:hover .front {
+    transform: rotateY(180deg);
+}
+
+.flip-card:hover .back {
+    transform: rotateY(360deg);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: #0d47a1;
+    color: white;
+    padding: 15px; }
+
+/* IMG LOGO */
+.logo{
+  width: 200px;
+  height: auto;
+  border-radius: 10px; /* bordes suaves */
+}
+#map {
+    width: 100%;
+    height: 400px;
+}
+/* RUTA VISUAL */
+.ruta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.punto {
+    background: #2ecc71;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.linea {
+    flex: 1;
+    height: 4px;
+    background: #0d47a1;
+}
+
+.plan-card {
+    background: #73a3eb; /* azul como mini-card */
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.plan-card:hover {
+    transform: scale(1.05);
+    background: #2ecc71; /* cambia a verde al pasar el mouse */
+}
+
+.precio {
+    font-size: 28px;
+    margin: 15px 0;
+    color: white;
+}
+.planes {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap; /* evita que se dañen en pantallas pequeñas */
+}
+/* GRID CONTACTO */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form input, form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #27ae60;
+}
+
+/* TEXTO MÁS GRANDE */
+.cta h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* BOTÓN PRO */
+.btn-cta {
+    padding: 15px 30px;
+    font-size: 16px;
+    background: white;
+    color: #0d47a1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* CTA QUE OCUPA TODO */
+.cta-full {
+    width: 100%;
+    background: linear-gradient(to right, #0d47a1, #2ecc71);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 40px;
+}
+/** inicio de sesion*/
+#fondo {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("https://img.freepik.com/fotos-premium/repartidor-caja-carton-comprobando-lista-documentos-furgoneta-paquetes-asiento-fuera-almacen_265022-30144.jpg") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.contenedor {
+    font-family: "Luckiest Guy", cursive;
+    background-color: #3284aa;
+    padding: 30px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    color: rgb(20, 20, 20);
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #131212;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+}
+
+button {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #22c55e;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #16a34a;
+}
+
+.oculto {
+    display: none;
+}
+/*MAPA*/
+#MAPA{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #0f172a;
+    color: white;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.mapa {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.localidad {
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.localidad:hover {
+    transform: scale(1.1);
+}
+
+/* Colores por localidad */
+.kennedy {
+    background-color: #22c55e;
+}
+
+.suba {
+    background-color: #0ea5e9;
+}
+
+.usaquen {
+    background-color: #f59e0b;
+}
+
+.bosa {
+    background-color: #ef4444;
+}
+
+.engativa {
+    background-color: #8b5cf6;
+}
+
+.chapinero {
+    background-color: #14b8a6;
+}

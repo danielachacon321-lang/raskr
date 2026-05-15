@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rask Rute</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="fondo">
+
+<div class="contenedor" id="login">
+    <h1>Rask Rute</h1>
+    <p>Inicio de sesión</p>
+
+    <input type="email" placeholder="Correo">
+    <input type="password" placeholder="Contraseña">
+
+    <button onclick="entrar()">Entrar</button>
+</div>
+
+<div class="contenedor oculto" id="inicio">
+    <h1>Entregas de hoy</h1>
+    <p>Tienes <b>5 paquetes pendientes</b></p>
+
+    <button onclick="iniciarRuta()">Iniciar ruta</button>
+</div>
+
+<script>
+function entrar() {
+    document.getElementById("login").classList.add("oculto");
+    document.getElementById("inicio").classList.remove("oculto");
+}
+
+function iniciarRuta() {
+    alert("Iniciando ruta...\nSigue las indicaciones de voz");
+}
+</script>
+
+</body>
+</html>

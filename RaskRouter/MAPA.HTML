@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Rask Rute - Completo</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"/>
+
+<style>
+#map {
+    height: 100vh;
+}
+</style>
+</head>
+<body id="MAPA">
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+<script>
+
+// 🗺️ Crear mapa
+var map = L.map('map').setView([4.65, -74.1], 12);
+
+// 🌍 Fondo
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// 📦 Datos de paquetes por zona
+var paquetes = {
+    "Kennedy": 15,
+    "Suba": 10,
+    "Usaquen": 5,
+    "Bosa": 8
+};
+
+// 🎨 Colores según cantidad
+function getColor(cantidad) {
+    return cantidad > 12 ? '#22c55e' :
+           cantidad > 8  ? '#0ea5e9' :
+           cantidad > 5  ? '#f59e0b' :
+                           '#ef4444';
+}
+
+// 🔥 GEOJSON ZONAS
+var geojson = {
+"type": "FeatureCollection",
+"features": [
+{
+"type": "Feature",
+"properties": {"name": "Kennedy"},
+"geometry": {
+"type": "Polygon",
+"coordinates": [[
+[-74.17,4.63],[-74.13,4.63],[-74.13,4.66],[-74.17,4.66],[-74.17,4.63]
+]]
+}
+},
+{
+"type": "Feature",
+"properties": {"name": "Suba"},
+"geometry": {
+"type": "Polygon",
+"coordinates": [[
+[-74.10,4.72],[-74.05,4.72],[-74.05,4.76],[-74.10,4.76],[-74.10,4.72]
+]]
+}
+},
+{
+"type": "Feature",
+"properties": {"name": "Usaquen"},
+"geometry": {
+"type": "Polygon",
+"coordinates": [[
+[-74.05,4.70],[-74.01,4.70],[-74.01,4.74],[-74.05,4.74],[-74.05,4.70]
+]]
+}
+},
+{
+"type": "Feature",
+"properties": {"name": "Bosa"},
+"geometry": {
+"type": "Polygon",
+"coordinates": [[
+[-74.20,4.60],[-74.16,4.60],[-74.16,4.63],[-74.20,4.63],[-74.20,4.60]
+]]
+}
+}
+]
+};
+
+// 🟩 Dibujar zonas
+L.geoJSON(geojson, {
+    style: function(feature) {
+        let nombre = feature.properties.name;
+        let cantidad = paquetes[nombre] || 0;
+
+        return {
+            color: "black",
+            weight: 1,
+            fillColor: getColor(cantidad),
+            fillOpacity: 0.5
+        };
+    },
+    onEachFeature: function(feature, layer) {
+        let nombre = feature.properties.name;
+        let cantidad = paquetes[nombre] || 0;
+
+        layer.bindPopup("<b>" + nombre + "</b><br>📦 Paquetes: " + cantidad);
+    }
+}).addTo(map);
+
+
+// 📍 PUNTOS DE ENTREGA
+var entregas = [
+    [4.626, -74.153],
+    [4.630, -74.150],
+    [4.635, -74.148]
+];
+
+// 🔴 MARCADORES
+entregas.forEach((p, i) => {
+    L.marker(p).addTo(map)
+    .bindPopup("📦 Entrega " + (i+1));
+});
+
+// 🚗 RUTA MÁS RÁPIDA
+L.Routing.control({
+    waypoints: entregas.map(p => L.latLng(p)),
+    routeWhileDragging: false,
+    createMarker: function() { return null; } // evita duplicar marcadores
+}).addTo(map);
+
+</script>
+
+</body>
+</html>
