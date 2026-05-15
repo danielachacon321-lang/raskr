@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Rask Router</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+<img src="ruter.png" alt="" class="logo">
+<nav>
+<a href="rask.html">Inicio</a>
+<a href="servicios.html">Servicios</a>
+<a href="costos.html">Planes</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="card hero">
+<h2>Optimiza tus rutas 🚚</h2>
+<p>Menos costos, más eficiencia y control total.</p>
+<button><a href="INICIO DE SESION.html">Comenzar</a></button>
+</div>
+
+  <div class="card">
+        <h2>¿Qué es Rask Router?</h2>
+        <p>
+            Rask Router es una solución que permite optimizar rutas de entrega,
+            automatizar procesos y mejorar la eficiencia en empresas de mensajería
+            y logística.
+        </p>
+  </div>
+
+   <!-- MAPA -->
+    <div class="card">
+        <h2>Zona de Operación 🗺️</h2>
+
+        <iframe 
+            id="mapa"
+            src="MAPA.HTML"
+            width="100%" 
+            height="450"
+            style="border:0; border-radius:15px;">
+        </iframe>
+    </div>
+
+
+  <!-- PUNTOS -->
+    <div class="card">
+        <h2>Puntos de Entrega 🚚</h2>
+        <ul>
+            <li>🚚 Monserrate – Centro de operaciones</li>
+            <li>🚚 Chapinero – Entrega 1</li>
+            <li>🚚 Zona T – Entrega 2</li>
+            <li>🚚 Usaquén – Entrega 3</li>
+            <li>🚚 Suba – Entrega final</li>
+        </ul>
+    </div>
+
+      <!-- BOTÓN RUTA REAL -->
+    <div class="card">
+        <h2>Ruta Completa 🚚</h2>
+        <p>Haz clic para ESCUCHAR la ruta :</p>
+
+        <button onclick=" iniciarRuta()">🔊 Iniciar navegación por voz</button>
+        </a>
+    </div>
+
+ <!-- SIMULACIÓN DE RUTA -->
+    <div class="card">
+        <h2>Simulación de Ruta 🚚</h2>
+
+        <div class="ruta">
+            <div class="punto">📍 Centro</div>
+            <div class="linea"></div>
+            <div class="punto">📍 Chapinero</div>
+            <div class="linea"></div>
+            <div class="punto">📍 Zona T</div>
+            <div class="linea"></div>
+            <div class="punto">📍 Usaquén</div>
+            <div class="linea"></div>
+            <div class="punto">📍 Suba</div>
+            
+        </div>
+    </div>
+
+
+
+<!--BENEFICIOS-->
+    <div class="card">
+        <h2>Beneficios</h2>
+
+        <div class="grid">
+            <div class="mini-card">Menos costos operativos</div>
+            <div class="mini-card">Mayor eficiencia</div>
+            <div class="mini-card">Menos errores</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+let puntos = [
+    { lugar: "Monserrate,Bogota", nombre: "Centro de operaciones" },
+    { lugar: "Chapinero,Bogota", nombre: "Entrega 1" },
+    { lugar: "Zona T,Bogota", nombre: "Entrega 2" },
+    { lugar: "Usaquen,Bogota", nombre: "Entrega 3" },
+    { lugar: "Suba,Bogota", nombre: "Entrega final" }
+];
+
+let i = 0;
+
+
+</script>
+
+
+<footer>© 2026 Rask Router</footer>
+
+</body>
+</html>
+
+<script>
+
+// 📍 Puntos
+let puntos = [
+    { lugar: "Monserrate Bogotá", nombre: "Centro de operaciones" },
+    { lugar: "Chapinero Bogotá", nombre: "Entrega 1" },
+    { lugar: "Zona T Bogotá", nombre: "Entrega 2" },
+    { lugar: "Usaquén Bogotá", nombre: "Entrega 3" },
+    { lugar: "Suba Bogotá", nombre: "Entrega final" }
+];
+
+let i = 0;
+
+// 🔊 PROBAR VOZ (esto debe sonar sí o sí)
+function probarVoz() {
+    let msg = new SpeechSynthesisUtterance("Hola, el sistema de voz está funcionando");
+    msg.lang = "es-ES";
+    speechSynthesis.speak(msg);
+}
+
+// 🔊 HABLAR
+function hablar(texto) {
+    let msg = new SpeechSynthesisUtterance(texto);
+    msg.lang = "es-ES";
+    speechSynthesis.speak(msg);
+}
+
+// 🚚 INICIAR RUTA
+function iniciarRuta() {
+
+    i = 0;
+
+    hablar("Iniciando ruta");
+
+    function siguiente() {
+
+        if (i < puntos.length) {
+
+            let p = puntos[i];
+
+            hablar("Dirígete a " + p.lugar + ", " + p.nombre);
+
+            i++;
+
+            setTimeout(siguiente, 5000);
+
+        } else {
+            hablar("Ruta finalizada");
+        }
+    }
+
+    setTimeout(siguiente, 2000);
+}
+
+</script>
